@@ -39,18 +39,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [formState, setFormState] = useState({
-    name: "",
-    phone: "",
-    course: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <main className="min-h-screen bg-linear-to-b from-background via-[#e6eef7] to-[#dfe9f5] font-sans text-foreground antialiased selection:bg-primary/20">
       {/* Hero */}
