@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import classroomImg from "@/assets/classroom.jpg";
 
@@ -70,12 +70,12 @@ function Index() {
               </p>
             </div>
           </div>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="rounded-full bg-frost/60 px-4 py-2 text-xs font-semibold text-foreground ring-1 ring-black/5 backdrop-blur-md transition-colors hover:bg-frost"
           >
-            Enquire
-          </a>
+            Contact
+          </Link>
         </header>
 
         <div className="relative z-10 mt-10 rounded-[28px] bg-frost/55 p-6 ring-1 ring-black/5 backdrop-blur-xl">
@@ -304,58 +304,17 @@ function Index() {
             Book a free demo class
           </p>
 
-          {submitted ? (
-            <div className="mt-4 rounded-xl bg-primary/10 p-4 text-center">
-              <p className="text-sm font-semibold text-primary">Thank you!</p>
-              <p className="mt-1 text-xs text-muted">
-                We have received your enquiry and will call you back soon.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="mt-3 flex flex-col gap-2.5">
-              <input
-                type="text"
-                required
-                placeholder="Student name"
-                value={formState.name}
-                onChange={(e) =>
-                  setFormState((s) => ({ ...s, name: e.target.value }))
-                }
-                className="rounded-xl bg-frost/70 px-4 py-3 text-sm text-foreground ring-1 ring-black/5 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/40"
-              />
-              <input
-                type="tel"
-                required
-                placeholder="Parent phone"
-                value={formState.phone}
-                onChange={(e) =>
-                  setFormState((s) => ({ ...s, phone: e.target.value }))
-                }
-                className="rounded-xl bg-frost/70 px-4 py-3 text-sm text-foreground ring-1 ring-black/5 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/40"
-              />
-              <select
-                required
-                value={formState.course}
-                onChange={(e) =>
-                  setFormState((s) => ({ ...s, course: e.target.value }))
-                }
-                className="rounded-xl bg-frost/70 px-4 py-3 text-sm text-foreground ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
-              >
-                <option value="">Choose a course</option>
-                <option value="science">Science (Class 9-12)</option>
-                <option value="foundation">Foundation (Class 6-8)</option>
-                <option value="english-humanities">
-                  English &amp; Humanities
-                </option>
-              </select>
-              <button
-                type="submit"
-                className="rounded-xl bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-[#2a63c9] active:translate-y-px"
-              >
-                Request a Callback
-              </button>
-            </form>
-          )}
+          <p className="mt-2 text-sm text-muted">
+            Send us a message with the student's class and we will call you back
+            to arrange a free demo class.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-4 block rounded-xl bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-[#2a63c9] active:translate-y-px"
+          >
+            Go to contact page
+          </Link>
+
 
           <div className="mt-5 border-t border-border pt-4">
             <p className="text-sm font-semibold">Naboday Coaching Centre</p>
